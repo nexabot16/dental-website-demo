@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BrightSmile Dental — Modern Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#f0f4ff;--surface:#ffffff;--dark:#0a1628;--blue:#1a6bbd;--blue2:#2d8ce0;--border:#dde6f5;--text:#0a1628;--muted:#94a3b8;--soft:#5a6a7e;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(240,244,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.logo{font-size:20px;font-weight:800;color:var(--dark);text-decoration:none;}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--soft);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-book{padding:10px 22px;background:var(--blue);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:8px;transition:background .2s;}
+.nav-book:hover{background:var(--blue2);}
+
+/* HERO — dark left panel + white right panel */
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;}
+.hero-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:120px 8% 80px;position:relative;overflow:hidden;}
+.hero-left::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(45,140,224,0.12),transparent 70%);}
+.hero-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:20px;font-weight:700;}
+.hero h1{font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;color:white;margin-bottom:22px;}
+.hero h1 span{color:var(--blue2);}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.5);max-width:380px;margin-bottom:36px;line-height:1.8;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-blue{padding:14px 28px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.btn-blue:hover{background:var(--blue2);}
+.btn-wh{padding:14px 28px;border:1.5px solid rgba(255,255,255,0.15);color:white;font-size:14px;font-weight:600;border-radius:10px;text-decoration:none;transition:all .2s;}
+.btn-wh:hover{border-color:var(--blue2);color:var(--blue2);}
+.trust-row{display:flex;gap:20px;margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;}
+.trust-pill{display:flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,0.06);border-radius:100px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);}
+.trust-pill span{font-size:16px;}
+
+.hero-right{background:white;padding:80px 8%;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+.stat-big{background:var(--bg);border:1.5px solid var(--border);border-radius:20px;padding:28px;}
+.stat-big-num{font-size:48px;font-weight:800;color:var(--blue);line-height:1;}
+.stat-big-label{font-size:13px;color:var(--muted);margin-top:6px;}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stat-sm{background:var(--bg);border:1.5px solid var(--border);border-radius:16px;padding:22px;}
+.stat-sm-num{font-size:30px;font-weight:800;color:var(--dark);}
+.stat-sm-label{font-size:12px;color:var(--muted);margin-top:4px;}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;}
+.badge{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.badge-blue{background:rgba(26,107,189,0.08);color:var(--blue);border:1px solid rgba(26,107,189,0.2);}
+.badge-green{background:rgba(34,197,94,0.08);color:#16a34a;border:1px solid rgba(34,197,94,0.2);}
+.badge-red{background:rgba(239,68,68,0.08);color:#dc2626;border:1px solid rgba(239,68,68,0.2);}
+
+section{padding:90px 6%;}
+.sec-eye{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.sec-title{font-size:clamp(28px,3.5vw,44px);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-1px;color:var(--dark);}
+.sec-sub{font-size:15px;color:var(--soft);line-height:1.8;max-width:480px;}
+
+/* HOW IT WORKS */
+.how-sec{background:var(--dark);}
+.how-sec .sec-title{color:white;}
+.how-sec .sec-sub{color:rgba(255,255,255,.45);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:52px;border:1px solid rgba(255,255,255,.06);}
+.step{padding:36px 28px;position:relative;}
+.step-num{font-size:48px;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:16px;}
+.step-icon{font-size:28px;margin-bottom:14px;}
+.step-title{font-size:16px;font-weight:700;color:white;margin-bottom:8px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;}
+.step::after{content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-size:20px;color:rgba(255,255,255,.15);z-index:2;}
+.step:last-child::after{display:none;}
+
+/* TREATMENTS */
+.treat-sec{background:var(--bg);}
+.treat-layout{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;margin-top:52px;}
+.treat-nav{display:flex;flex-direction:column;gap:4px;position:sticky;top:100px;}
+.tnav-item{padding:14px 18px;border-radius:12px;font-size:14px;font-weight:600;color:var(--soft);cursor:pointer;transition:all .2s;border:none;background:none;text-align:left;}
+.tnav-item.active,.tnav-item:hover{background:var(--blue);color:white;}
+.treat-panels{}
+.treat-panel{display:none;background:var(--surface);border:1.5px solid var(--border);border-radius:20px;padding:36px;}
+.treat-panel.active{display:block;}
+.tp-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.tp-icon{width:56px;height:56px;border-radius:16px;background:rgba(26,107,189,.08);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.tp-name{font-size:20px;font-weight:800;color:var(--dark);}
+.tp-tag{display:inline-block;margin-top:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px;background:rgba(26,107,189,.08);color:var(--blue);}
+.tp-desc{font-size:14px;color:var(--soft);line-height:1.8;margin-bottom:24px;}
+.tp-includes{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.tp-includes li{font-size:13px;color:var(--soft);display:flex;align-items:center;gap:8px;}
+.tp-includes li::before{content:'✓';color:var(--blue);font-weight:700;}
+.tp-price{font-size:18px;font-weight:800;color:var(--blue);}
+.tp-book{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--blue);color:white;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:background .2s;border:none;cursor:pointer;margin-top:16px;}
+.tp-book:hover{background:var(--blue2);}
+
+/* BOOKING */
+.book-sec{background:white;border-top:1px solid var(--border);}
+.book-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
+.book-info{}
+.book-info-cards{display:flex;flex-direction:column;gap:12px;margin-top:32px;}
+.bic{background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;}
+.bic-icon{font-size:22px;}
+.bic-title{font-size:14px;font-weight:700;color:var(--dark);}
+.bic-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.book-form{background:var(--bg);border:1.5px solid var(--border);border-radius:20px;padding:40px;}
+.book-form h3{font-size:20px;font-weight:800;color:var(--dark);margin-bottom:28px;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg.full{grid-column:span 2;}
+.fg label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.fg input,.fg select,.fg textarea{background:white;border:1.5px solid var(--border);color:var(--dark);padding:12px 14px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;border-radius:10px;transition:border .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);}
+.fg textarea{height:75px;resize:none;}
+.emerg-check{margin-top:8px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--soft);cursor:pointer;}
+.emerg-check input{width:16px;height:16px;cursor:pointer;}
+.emerg{background:rgba(239,68,68,0.06);border:1.5px solid rgba(239,68,68,0.2);color:#dc2626;font-size:12px;font-weight:700;padding:10px 16px;border-radius:10px;margin-top:8px;display:flex;align-items:center;gap:8px;}
+.bbtn{width:100%;padding:14px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;border:none;border-radius:12px;cursor:pointer;transition:background .2s;margin-top:16px;}
+.bbtn:hover{background:var(--blue2);}
+
+/* REVIEWS */
+.rev-sec{background:var(--bg);}
+.rev-featured{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px;margin-top:48px;}
+.rcard{background:white;border:1.5px solid var(--border);border-radius:16px;padding:28px;transition:all .2s;}
+.rcard:hover{border-color:var(--blue);box-shadow:0 6px 20px rgba(26,107,189,.08);}
+.rcard.featured{background:var(--dark);border-color:var(--dark);}
+.rstars{font-size:14px;margin-bottom:14px;}
+.rcard.featured .rstars{color:#f59e0b;}
+.rcard:not(.featured) .rstars{color:#f59e0b;}
+.rtext{font-size:13px;line-height:1.8;margin-bottom:20px;font-style:italic;}
+.rcard.featured .rtext{color:rgba(255,255,255,.6);}
+.rcard:not(.featured) .rtext{color:var(--soft);}
+.rname{font-size:14px;font-weight:700;}
+.rcard.featured .rname{color:white;}
+.rloc{font-size:12px;color:var(--muted);}
+
+footer{background:var(--dark);color:white;padding:60px 6% 30px;}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px;}
+.flogo{font-size:20px;font-weight:800;margin-bottom:14px;}
+.flogo span{color:var(--blue2);}
+.fdesc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.8;max-width:260px;}
+.ftitle{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue2);margin-bottom:16px;font-weight:700;}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.flinks a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;transition:color .2s;}
+.flinks a:hover{color:white;}
+.fb{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.fb p{font-size:12px;color:rgba(255,255,255,.3);}
+.fb a{color:var(--blue2);text-decoration:none;font-size:12px;font-weight:600;}
+
+.notif{position:fixed;bottom:24px;right:24px;background:var(--dark);border:1px solid var(--blue);padding:18px 22px;max-width:300px;z-index:999;border-radius:12px;transform:translateY(120px);opacity:0;transition:all .4s;}
+.notif.show{transform:translateY(0);opacity:1;}
+.ntitle{font-size:13px;font-weight:700;color:var(--blue2);margin-bottom:4px;}
+.nmsg{font-size:12px;color:rgba(255,255,255,.5);}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{padding:40px 6%;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .step::after{display:none;}
+  .treat-layout{grid-template-columns:1fr;}
+  .treat-nav{flex-direction:row;flex-wrap:wrap;position:static;}
+  .book-layout{grid-template-columns:1fr;}
+  .rev-featured{grid-template-columns:1fr;}
+  .fgrid{grid-template-columns:1fr;}
+  .fg.full{grid-column:span 1;}
+  .ft{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Bright<span>Smile</span></a>
+  <ul class="nav-links">
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#book">Book</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#book" class="nav-book">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eye">Modern Dental Care · Karachi</div>
+    <h1>Your smile,<br><span>perfected.</span></h1>
+    <p class="hero-sub">Cutting-edge technology, expert specialists, and a patient-first approach — from routine cleanups to complete smile makeovers.</p>
+    <div class="hero-btns">
+      <a href="#book" class="btn-blue">Book Appointment</a>
+      <a href="#treatments" class="btn-wh">View Treatments</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-pill"><span>😌</span> Pain-free care</div>
+      <div class="trust-pill"><span>🚨</span> Same-day emergency</div>
+      <div class="trust-pill"><span>👶</span> Kids welcome</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-big"><div class="stat-big-num">500+</div><div class="stat-big-label">Happy patients treated</div></div>
+    <div class="stat-row">
+      <div class="stat-sm"><div class="stat-sm-num">★ 4.8</div><div class="stat-sm-label">Google rating</div></div>
+      <div class="stat-sm"><div class="stat-sm-num">12+</div><div class="stat-sm-label">Years experience</div></div>
+    </div>
+    <div class="badge-row">
+      <div class="badge badge-blue"><span>🦷</span> 6 Treatments</div>
+      <div class="badge badge-green"><span>✓</span> Same-day slots</div>
+      <div class="badge badge-red"><span>🚨</span> Emergency care</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-sec">
+  <div class="sec-eye">How It Works</div>
+  <h2 class="sec-title" style="color:white;">Simple. Fast. Stress-free.</h2>
+  <p class="sec-sub">From booking to aftercare — your entire dental journey made easy.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div class="step-icon">📱</div><div class="step-title">Book Online</div><div class="step-desc">Choose your treatment, pick a date and time, and confirm in seconds.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-icon">✅</div><div class="step-title">Get Confirmed</div><div class="step-desc">We'll send a WhatsApp confirmation with all your appointment details.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-icon">🦷</div><div class="step-title">Visit the Clinic</div><div class="step-desc">Walk in, relax, and let our expert team take care of the rest.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-icon">😁</div><div class="step-title">Leave Smiling</div><div class="step-desc">Walk out with a healthier, more confident smile every time.</div></div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treat-sec" id="treatments">
+  <div class="sec-eye">Treatments</div>
+  <h2 class="sec-title">Everything your<br>smile needs.</h2>
+  <div class="treat-layout">
+    <div class="treat-nav">
+      <button class="tnav-item active" onclick="showTreat('cleaning',this)">🦷 Dental Cleaning</button>
+      <button class="tnav-item" onclick="showTreat('filling',this)">🔧 Tooth Filling</button>
+      <button class="tnav-item" onclick="showTreat('root',this)">❤️‍🩹 Root Canal</button>
+      <button class="tnav-item" onclick="showTreat('braces',this)">😁 Braces & Aligners</button>
+      <button class="tnav-item" onclick="showTreat('whitening',this)">✨ Teeth Whitening</button>
+      <button class="tnav-item" onclick="showTreat('kids',this)">👶 Kids Dentistry</button>
+    </div>
+    <div class="treat-panels">
+      <div class="treat-panel active" id="tp-cleaning"><div class="tp-header"><div class="tp-icon">🦷</div><div><div class="tp-name">Dental Cleaning</div><div class="tp-tag">ROUTINE</div></div></div><p class="tp-desc">Professional scaling and polishing to remove plaque, tartar, and surface stains. Recommended every 6 months for optimal oral health.</p><ul class="tp-includes"><li>Full mouth scaling</li><li>Polishing & stain removal</li><li>Oral hygiene advice</li><li>Fluoride treatment</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+      <div class="treat-panel" id="tp-filling"><div class="tp-header"><div class="tp-icon">🔧</div><div><div class="tp-name">Tooth Filling</div><div class="tp-tag">RESTORATIVE</div></div></div><p class="tp-desc">Composite or amalgam fillings to restore decayed or damaged teeth. Our tooth-coloured composites are virtually invisible.</p><ul class="tp-includes"><li>Decay removal</li><li>Tooth-coloured composite</li><li>Bite adjustment</li><li>Aftercare guidance</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+      <div class="treat-panel" id="tp-root"><div class="tp-header"><div class="tp-icon">❤️‍🩹</div><div><div class="tp-name">Root Canal</div><div class="tp-tag">ENDODONTIC</div></div></div><p class="tp-desc">Pain-free root canal therapy to save infected teeth and eliminate severe discomfort. Modern techniques make this procedure completely manageable.</p><ul class="tp-includes"><li>Infection removal</li><li>Canal shaping & filling</li><li>Crown placement</li><li>Follow-up check</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+      <div class="treat-panel" id="tp-braces"><div class="tp-header"><div class="tp-icon">😁</div><div><div class="tp-name">Braces & Aligners</div><div class="tp-tag">ORTHODONTIC</div></div></div><p class="tp-desc">Traditional metal braces and clear aligners to straighten your teeth discreetly and effectively. For all ages.</p><ul class="tp-includes"><li>Initial consultation</li><li>Custom treatment plan</li><li>Monthly adjustments</li><li>Retainer included</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+      <div class="treat-panel" id="tp-whitening"><div class="tp-header"><div class="tp-icon">✨</div><div><div class="tp-name">Teeth Whitening</div><div class="tp-tag">COSMETIC</div></div></div><p class="tp-desc">Professional in-chair whitening for a noticeably brighter, more confident smile. Results visible in a single session.</p><ul class="tp-includes"><li>Shade assessment</li><li>Professional gel application</li><li>LED activation</li><li>Home maintenance kit</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+      <div class="treat-panel" id="tp-kids"><div class="tp-header"><div class="tp-icon">👶</div><div><div class="tp-name">Kids Dentistry</div><div class="tp-tag">PEDIATRIC</div></div></div><p class="tp-desc">Gentle, child-friendly dental care designed to make little ones feel safe and comfortable. Building good habits from an early age.</p><ul class="tp-includes"><li>Kid-friendly environment</li><li>Gentle examination</li><li>Fluoride & sealants</li><li>Parent education</li></ul><div class="tp-price">From PKR XXX</div><button class="tp-book" onclick="scrollToBook()">Book This Treatment →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="book-sec" id="book">
+  <div class="book-layout">
+    <div class="book-info">
+      <div class="sec-eye">Book Appointment</div>
+      <h2 class="sec-title">Let's fix that<br>smile today.</h2>
+      <div class="book-info-cards">
+        <div class="bic"><div class="bic-icon">📍</div><div><div class="bic-title">Block 5, Clifton, Karachi</div><div class="bic-sub">Easy parking available</div></div></div>
+        <div class="bic"><div class="bic-icon">🕐</div><div><div class="bic-title">Mon–Fri 9am–7pm</div><div class="bic-sub">Saturday 10am–4pm</div></div></div>
+        <div class="bic"><div class="bic-icon">🚨</div><div><div class="bic-title">Emergency Slots</div><div class="bic-sub">Same-day appointments available</div></div></div>
+        <div class="bic"><div class="bic-icon">📞</div><div><div class="bic-title">0330-2260175</div><div class="bic-sub">Call or WhatsApp</div></div></div>
+      </div>
+    </div>
+    <div class="book-form">
+      <h3>Book Your Visit</h3>
+      <div class="fgrid">
+        <div class="fg"><label>Full Name</label><input type="text" id="bName" placeholder="Your name"/></div>
+        <div class="fg"><label>Phone</label><input type="tel" id="bPhone" placeholder="+92 3XX XXXXXXX"/></div>
+        <div class="fg"><label>Date</label><input type="date" id="bDate"/></div>
+        <div class="fg"><label>Time</label><input type="time" id="bTime"/></div>
+        <div class="fg full"><label>Treatment</label>
+          <select id="bService">
+            <option>Dental Cleaning</option><option>Tooth Filling</option>
+            <option>Root Canal</option><option>Braces / Aligners</option>
+            <option>Teeth Whitening</option><option>Kids Dentistry</option>
+          </select>
+        </div>
+        <div class="fg full"><label>Note (optional)</label><textarea id="bNote" placeholder="Describe your concern or any relevant medical history..."></textarea></div>
+      </div>
+      <div class="emerg"><span>🚨</span> Need an emergency slot? Call us directly: 0330-2260175</div>
+      <button class="bbtn" onclick="submitBook()">Confirm Appointment</button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="rev-sec" id="reviews">
+  <div class="sec-eye">Patient Reviews</div>
+  <h2 class="sec-title">Trusted by hundreds.</h2>
+  <div class="rev-featured">
+    <div class="rcard featured"><div class="rstars">★★★★★</div><p class="rtext">"I had severe tooth pain and they saw me the same day. Root canal was completely painless. I was so nervous but the team was incredibly reassuring. Best dental experience I've ever had."</p><div class="rname" style="color:white;">Tariq Mehmood</div><div class="rloc">DHA Karachi</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">"Brought my 6-year-old and Dr. Ahmed was brilliant with her. She actually looks forward to her next visit!"</p><div class="rname">Hina Baig</div><div class="rloc">Clifton, Karachi</div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><p class="rtext">"Whitening results were incredible. Completely professional-grade. Highly recommend to anyone."</p><div class="rname">Zaid Qureshi</div><div class="rloc">Gulshan, Karachi</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div><div class="flogo">Bright<span>Smile</span></div><p class="fdesc">Modern dental care for the whole family. Expert treatment, gentle approach, lasting results.</p></div>
+    <div><div class="ftitle">Treatments</div><ul class="flinks"><li><a href="#">Dental Cleaning</a></li><li><a href="#">Root Canal</a></li><li><a href="#">Braces</a></li><li><a href="#">Whitening</a></li><li><a href="#">Kids Dentistry</a></li></ul></div>
+    <div><div class="ftitle">Contact</div><ul class="flinks"><li><a href="#">Block 5, Clifton</a></li><li><a href="#">Mon–Fri 9am–7pm</a></li><li><a href="tel:03302260175">0330-2260175</a></li><li><a href="https://wa.me/923302260175">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="fb"><p>© 2025 BrightSmile Dental. All rights reserved.</p><a href="https://nexabot16.github.io/portfolio" target="_blank">Built by Omar →</a></div>
+</footer>
+
+<div class="notif" id="notif"><div class="ntitle">✅ Appointment Confirmed!</div><div class="nmsg" id="notifMsg">WhatsApp opening with your booking details.</div></div>
+
+<script>
+function showTreat(id,btn){
+  document.querySelectorAll('.treat-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tnav-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tp-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function scrollToBook(){document.getElementById('book').scrollIntoView({behavior:'smooth'});}
+function submitBook(){
+  const name=document.getElementById('bName').value.trim();
+  const phone=document.getElementById('bPhone').value.trim();
+  const date=document.getElementById('bDate').value;
+  const time=document.getElementById('bTime').value;
+  const service=document.getElementById('bService').value;
+  const note=document.getElementById('bNote').value.trim();
+  if(!name||!phone||!date||!time){alert('Please fill in all required fields.');return;}
+  const fd=new Date(date).toLocaleDateString('en-PK',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  let msg=`*New Appointment — BrightSmile Dental*\n\n`;
+  msg+=`👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📅 *Date:* ${fd}\n⏰ *Time:* ${time}\n🦷 *Treatment:* ${service}\n`;
+  if(note) msg+=`📝 *Note:* ${note}\n`;
+  msg+=`\nKindly confirm my appointment. Thank you! 🙏`;
+  window.open(`https://wa.me/923302260175?text=${encodeURIComponent(msg)}`,'_blank');
+  document.getElementById('notifMsg').textContent=`Appointment for ${name} on ${fd} — WhatsApp opening now.`;
+  const n=document.getElementById('notif');n.classList.add('show');setTimeout(()=>n.classList.remove('show'),5000);
+}
+</script>
+</body>
+</html>
